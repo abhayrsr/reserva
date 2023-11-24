@@ -8,7 +8,7 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   function registerUser(e){
     e.preventDefault();
-    axios.get('http://localhost:4000/test');
+    axios.get('/test');
   }
   return (
     <div className="mt-4 grow flex items-center justify-around">
