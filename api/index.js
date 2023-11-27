@@ -47,8 +47,11 @@ app.post("/login", async (req, res) => {
     console.log(passOk)
     
     if(passOk) {
-
-      res.cookie('token', '').json('pass ok');
+      jwt.sign({email: userDoc.email, _id: userDoc._id}, jwtSecret, {}, (err,token) => {
+        if(err) throw err;
+        res.cookie('token', '').json('pass ok');
+      } )
+      
     } else {
       res.status(401).send("unauthorized");
     }
