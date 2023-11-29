@@ -15,14 +15,12 @@ app.use(
     origin: "http://localhost:5173",
     credentials: true,
     optionSuccessStatus: 200,
+
   })
 );
 
 mongoose.connect(process.env.MONGO_URL);
-
-app.get("/test", (req, res) => {
-  res.send("hello world");
-});
+const jwtSecret = process.env.JWT_SECRET;
 
 app.post("/register", async (req, res) => {
   const { name, email, password } = req.body;
@@ -41,19 +39,23 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const userDoc = await User.findOne({ email });
+
+  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+  res.header('Access-Control-Allow-Credentials', 'true');
   // console.log(userDoc);
   if (userDoc){
     const passOk  = bcrypt.compareSync(password, userDoc.password);
     console.log(passOk)
     
     if(passOk) {
-      jwt.sign({email: userDoc.email, _id: userDoc._id}, jwtSecret, {}, (err,token) => {
+      jwt.sign({email: userDoc.email, _id: userDoc._id}, jwtSecret, (err,token) => {
         if(err) throw err;
-        res.cookie('token', '').json('pass ok');
+        res.cookie('token', token).json(userDoc);
+        console.log(token)
       } )
       
     } else {
-      res.status(401).send("unauthorized");
+      res.status(422).json("pass not ok");
     }
     
   } else {

@@ -21,6 +21,24 @@
   dependencies:
     sparse-bitfield "^3.0.3"
 
+"@tinyhttp/cookie-parser@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@tinyhttp/cookie-parser/-/cookie-parser-2.0.6.tgz#1e52d4f0d28509e5486f9d16f0fd77d912e38f2d"
+  integrity sha512-hLcFr3ml6MBU71URUutvzh8p0PgqGpmTMcorUrRS+Fck0/q3tzScE+ghhocgIoSx/F6GRtS/TYJkJrjL/ickBw==
+  dependencies:
+    "@tinyhttp/cookie" ">=2"
+    "@tinyhttp/cookie-signature" ">=2"
+
+"@tinyhttp/cookie-signature@>=2":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@tinyhttp/cookie-signature/-/cookie-signature-2.1.0.tgz#b79c0f3b419e75dbafcefef14ad148694c97ae41"
+  integrity sha512-bpOXBGf9rKoajtEG75O7xjwW+u2I/NNPkJWJTDdr6j7Vx0lG5R9Hnl3ty80Af4jwyo90ywXVpZIxKLubPK6RzA==
+
+"@tinyhttp/cookie@>=2":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@tinyhttp/cookie/-/cookie-2.1.0.tgz#aa29cb160ee4cdcbe58271353203caaf8cb2cb46"
+  integrity sha512-o56utxXvIuLTCtPm66r8lcyUufpw0RkO+u4wQrTbc6snyyGZZ9hHzGRxPyko0ks90ctOkLh0mNKn7YZaTWlvfw==
+
 "@types/node@*":
   version "20.10.0"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-20.10.0.tgz#16ddf9c0a72b832ec4fcce35b8249cf149214617"
